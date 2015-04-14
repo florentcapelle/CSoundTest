@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9656AA251A701D6B00C119FA /* CsoundLib64 in Frameworks */ = {isa = PBXBuildFile; fileRef = 9656AA241A701D6B00C119FA /* CsoundLib64 */; };
 		969C06981A3A5A7A00C14B8B /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 969C06971A3A5A7A00C14B8B /* main.c */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		960DC5B51A3C41E500C4A28E /* libCsoundAC.6.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libCsoundAC.6.0.dylib; path = ../../../../Library/Frameworks/CsoundLib64.framework/Versions/6.0/libCsoundAC.6.0.dylib; sourceTree = "<group>"; };
+		960DC5B71A3C420100C4A28E /* libcsnd6.6.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcsnd6.6.0.dylib; path = ../../../../Library/Frameworks/CsoundLib64.framework/Versions/6.0/libcsnd6.6.0.dylib; sourceTree = "<group>"; };
+		9656AA241A701D6B00C119FA /* CsoundLib64 */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = CsoundLib64; path = ../../../../Library/Frameworks/CsoundLib64.framework/Versions/6.0/CsoundLib64; sourceTree = "<group>"; };
 		969C06941A3A5A7A00C14B8B /* CSoundTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CSoundTest; sourceTree = BUILT_PRODUCTS_DIR; };
 		969C06971A3A5A7A00C14B8B /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -32,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9656AA251A701D6B00C119FA /* CsoundLib64 in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +46,9 @@
 		969C068B1A3A5A7A00C14B8B = {
 			isa = PBXGroup;
 			children = (
+				9656AA241A701D6B00C119FA /* CsoundLib64 */,
+				960DC5B71A3C420100C4A28E /* libcsnd6.6.0.dylib */,
+				960DC5B51A3C41E500C4A28E /* libCsoundAC.6.0.dylib */,
 				969C06961A3A5A7A00C14B8B /* CSoundTest */,
 				969C06951A3A5A7A00C14B8B /* Products */,
 			);
@@ -128,7 +136,8 @@
 		969C06991A3A5A7A00C14B8B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				"ALWAYS_SEARCH_USER_PATHS[arch=*]" = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -158,9 +167,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				"HEADER_SEARCH_PATHS[arch=*]" = (
+					"$(inherited)",
+					"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,",
+					/Library/Frameworks/CsoundLib64.framework/Versions/6.0/Headers,
+				);
+				LIBRARY_SEARCH_PATHS = /Library/Frameworks/CsoundLib64.framework/Versions/6.0;
+				"LIBRARY_SEARCH_PATHS[arch=*]" = /Library/Frameworks/CsoundLib64.framework/Versions/6.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				"PRELINK_LIBS[arch=*]" = "";
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -168,7 +185,7 @@
 		969C069A1A3A5A7A00C14B8B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -193,7 +210,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				"LIBRARY_SEARCH_PATHS[arch=*]" = /Library/Frameworks/CsoundLib64.framework/Versions/6.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 			};
@@ -202,14 +220,30 @@
 		969C069C1A3A5A7A00C14B8B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"HEADER_SEARCH_PATHS[arch=*]" = "$(LOCAL_LIBRARY_DIR)/Frameworks/CsoundLib64.framework/Versions/6.0";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks/CsoundLib64.framework/Versions/6.0",
+				);
+				"LIBRARY_SEARCH_PATHS[arch=*]" = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks/CsoundLib64.framework/Versions/6.0",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = /Library/Frameworks/CsoundLib64.framework/Versions/6.0/Headers;
+				kkk = "";
 			};
 			name = Debug;
 		};
 		969C069D1A3A5A7A00C14B8B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks/CsoundLib64.framework/Versions/6.0",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				kkk = "";
 			};
 			name = Release;
 		};
@@ -232,6 +266,7 @@
 				969C069D1A3A5A7A00C14B8B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
